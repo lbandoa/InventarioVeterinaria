@@ -10,11 +10,18 @@ function login() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    const user = users.find(u => u.username == username && u.password == password);
+    if ( password.length >= 8 && password.length <=15 ) {
 
-    if (user) {
-        window.location.href = 'admin.html';
+        const user = users.find(u => u.username == username && u.password == password);
+
+        if (user) {
+            window.location.href = 'admin.html';
+        } else {
+            showMessage('Credenciales incorrectas. Inténtelo de nuevo.');
+        }
+
     } else {
-        showMessage('Credenciales incorrectas. Inténtelo de nuevo.');
+        showMessage("La contraseña no cumple con la longitud, vuelva a ingresar una contraseña entre 8 y 15 caracteres")
+
     }
 }
