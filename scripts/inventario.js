@@ -71,14 +71,26 @@ function updateProduct(){
 }
 
 
-function deleteProduct(){
-    search = document.getElementById('product-rudCode').value;
+function deleteProduct(){  
 
+    let search = document.getElementById('product-rudCode').value;
+    
     let resultSearch = findIndexElement(inventory, search);
 
-    inventory.splice(resultSearch, 1);
-    showInventory();
-    clearValuesRUD();
+    if (resultSearch != -1){
+        let validar = confirm(`¿Desea eliminar producto de inventario con código: ${search}?`);
+            
+        if (validar){
+
+            inventory.splice(resultSearch, 1);
+            showInventory();
+            clearValuesRUD();
+        }
+    }else{
+        alert(`El código ${search} no existe en la lista de inventarios, por favor ingrese nuevamente el código y vuelva a intentarlo.`);
+        clearValuesRUD();
+    }    
+    
 }
 
 
