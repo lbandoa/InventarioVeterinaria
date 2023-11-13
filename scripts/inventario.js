@@ -146,3 +146,47 @@ function clearValuesRUD(){
     document.getElementById('product-rudName').value = "";
     document.getElementById('product-rudQuantity').value = "";
 }
+
+
+function addProduct_cant() {
+    const codeProduct = document.getElementById('product-code').value;
+    const productName = document.getElementById('product-name').value;
+    const productQuantity = parseInt(document.getElementById('product-quantity').value, 10);
+    
+    search = document.getElementById('product-code').value;
+
+    let resultSearchProd = findElement(inventory, search);
+
+    if (resultSearchProd == -1){
+        if (productName && !isNaN(productQuantity) && productQuantity > 0 && codeProduct.length == 4) {
+
+            inventory.push({code: codeProduct, name: productName, quantity: productQuantity });
+            showInventory();
+            hideAddProductForm();
+            showMessage('Producto agregado al inventario.');
+            clearValuesCreate();
+        } else {
+            showMessage('Por favor, ingrese un nombre de producto válido y una cantidad válida.');
+        }
+    }else{
+        let validar = confirm(`El código del producto: ${search} ya existe, ¿desea agregar cantidades a las existentes?`);
+            
+        if (validar){
+            let searchIndex = findIndexElement(inventory, search);
+
+            element = Object(resultSearchProd);
+
+            let nameProduct = element.name
+
+            cant = element.quantity;
+            total = cant + productQuantity;
+
+            console.log(total);
+
+            inventory[searchIndex] = {code: codeProduct, name: nameProduct, quantity: total };
+            showInventory();
+            clearValuesCreate();
+        }
+    }
+    
+}
