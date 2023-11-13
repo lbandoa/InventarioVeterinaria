@@ -289,3 +289,10 @@ li {
     margin: 5px;
     padding: 5px;
 }
+
+#inventory-section, #rud-product-form {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
