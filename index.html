@@ -1,31 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="styles/index.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <title>Inventario Ferretería MULTI</title>
+    <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
-    <header>
-        <h1>Inventario Ferretería MULTI</h1>
-    </header>
-    <section class="section-login">
-        <picture>
-            <img src="imagenes/logo.png" alt="logo" width="200" height="200">
-        </picture>
+    <h1>Inventario Ferretería MULTI</h1>
+    <div id="login-section">
+        <h2>Iniciar Sesión</h2>
         <form id="login-form">
-            <label for="username">
-                <input type="text" id="username" placeholder="Nombre de usuario" required>
-            </label>
-            <br><br>
-            <label for="password">
-                <input type="password" id="password" placeholder="Contraseña" required>
-            </label>        
-            <br><br>
+            <input type="text" id="username" placeholder="Nombre de usuario" required>
+            <input type="password" id="password" placeholder="Contraseña" required>
             <button type="button" onclick="login()">Iniciar Sesión</button>
         </form>
-    </section>
-    <script src="./scripts/index.js"></script>
+    </div>
+    <div id="message"></div>
+    <script src="./scripts/login.js"></script>
 </body>
 </html>
