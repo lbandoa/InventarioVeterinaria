@@ -2,21 +2,56 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/d048c7ad53.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    <title>Inventario Ferretería MULTI</title>
+    <link rel="icon" href="./imagenes/Logo-sin-fondo.png" type="image/x-icon">
+    <title>Veterinaria NepetaCat</title>
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
-<body>
-    <h1>Inventario Ferretería MULTI</h1>
-    <div id="login-section">
-        <h2>Iniciar Sesión</h2>
-        <form id="login-form">
-            <input type="text" id="username" placeholder="Nombre de usuario" required>
-            <input type="password" id="password" placeholder="Contraseña" required>
-            <button type="button" onclick="login()">Iniciar Sesión</button>
-        </form>
-    </div>
+<body class="pagina-inicio">
+    <section>
+        <div class="agrupador">
+            <div id="login-section">
+                <form id="login-form">
+                    <h2>Iniciar Sesión</h2>
+
+                    <div class="input-textos">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="username" required>
+                        <label for="#">Usuario</label> 
+                    </div>
+
+                    <div class="input-textos">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="password" required>
+                        <label for="#">Contraseña</label>
+                    </div>
+
+                    <div class="olvidar">
+                        <label for="#">
+                            <input type="checkbox"> Recordar
+                            <a href="#">Olvidaste tu contraseña</a>
+                        </label>
+                    </div>
+
+                    <div>
+                        <button class="Iniciar" type="button" onclick="login()">Iniciar Sesión</button>
+                    </div>
+                    
+                    <div class="divider"> <!-- Línea divisoria -->
+                        <span>Iniciar sesión usando la cuenta</span>
+                    </div> 
+
+                    <div class="social-login">
+                        <a href="#" class="social-icon facebook"><img src="./imagenes/facebook.png" alt="Facebook"></a>
+                        <a href="#" class="social-icon google"><img src="./imagenes/google.png" alt="Google"></a>
+                        <a href="#" class="social-icon twitter"><img src="./imagenes/twitter.png" alt="Twitter"></a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
     <div id="message"></div>
     <script src="./scripts/login.js"></script>
 </body>

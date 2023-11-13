@@ -1,17 +1,271 @@
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
+/* ********* Estilos de la pagina login ********* */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
-h1 {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
+/* ********* Estilos del body ********* */
+.pagina-inicio {
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url(../imagenes/vecteezy_veterinary-clinic-with-doctor-and-sick-pets_13531098.jpg);
+}
+
+/* ********* Estilos del login ********* */
+section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 90vh;
+}
+
+.agrupador{
+  position: relative;
+  width: 400px;
+  height: 450px;
+  border: 1px solid rgba(82, 80, 80, 0.8);
+  display: flex;
+  backdrop-filter: blur(10px);
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.agrupador h2{
+  font-size: 2.3rem;
+  color: #000;
+  text-align: center;
+}
+
+h3{
+  color: #000;
+}
+
+.input-textos{
+    position: relative;
+    margin: 30px 0;
+    width: 300px;
+    border-bottom: 2px solid #000;
+}
+
+.input-textos label{
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  color: #000;
+  font-size: 1rem;
+  pointer-events: none;
+  transition: .6s;
+  font-weight: bold;
+}
+
+input:focus ~ label, 
+input:valid ~ label{
+  top: -5px;
+} 
+
+.input-textos input{
+  width: 100%;
+  height: 50px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: -35px 0 5px;
+  color: #000;  
+}
+
+.input-textos i{
+  position: absolute;
+  color: #000;
+  font-size: 1.6rem;
+  top: 19px;
+  right: 8px;
+}
+
+/* ********* Estilos de olvido contraseña y recordar ********* */
+
+.olvidar{
+  margin: -15px 0 15px;
+  font-size: .9rem;
+  color: #000;
+  font-weight: bold;
+  display: flex;
+}
+
+.olvidar label input{
+  margin: 3px;
+}
+
+.olvidar label a{
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  transition: .3s;
+  font-size: .9em;
+}
+
+.olvidar label a:hover{
+  text-decoration: underline;
+}
+
+/* ********* Estilos del botton login ********* */
+
+.Iniciar{
+    width: 100%;
+    height: 45px;
+    border-radius: 40px;
+    background: blueviolet;
+    color: #000;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    font-size: 1rem;
+    transition: .4s;
+}
+
+.Iniciar:hover{
+    opacity: .9;
+}
+
+/* ********* Estilos del divider********* */
+
+span{
+  color: #000;
+  font-size: .8rem;
+  font-style: italic;
+  font-weight: bold;
+  margin: 20px 0 10px;
+}
+
+/* ********* Estilos de las redes sociales ********* */
+
+  .social-login {
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  .social-icon {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  
+  .facebook img {
+    width: 32px;
+  }
+  
+  .google img {
+    width: 32px;
+  }
+  
+  .twitter img {
+    width: 32px;
+  }
+
+/* ********* estilos de la pagina menu ********* */
+
+/* ********* Estilos generales ********* */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ********* Estilos del menú lateral ********* */
+.menu {
+  background-color: #333;
+  color: #fff;
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.menu .logo {
+  margin-bottom: 20px;
+}
+
+.menu .logo img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+}
+
+.menu ul {
+  width: 100%;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  font-size: 1rem;
+  transition: .4s;
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.menu ul li {
+  padding: 10px;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+}
+
+.menu ul li a:hover {
+  background-color: #555;
+}
+
+/* ********* Estilos de los botones en el contenido ********* */
+.contenido {
+  margin-left: 260px;
+  padding: 20px;
+}
+
+.boton {
+  display: block;
+  width: 150px;
+  height: 40px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.boton:hover {
+  background-color: #0056b3;
+}
+/* *********Estilos de la pagina de admin ********* */
+
+.titulo{
+  margin: 20px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 #inventory-section, #add-product-form {
     margin: 20px;
     padding: 20px;
+    margin-left: 300px;
     border: 1px solid #ccc;
     text-align: left;
 }
@@ -21,8 +275,9 @@ button {
 }
 
 #message {
-    color: green;
+    color: red;
     font-weight: bold;
+    margin-left: 300px;
 }
 
 #product-list {

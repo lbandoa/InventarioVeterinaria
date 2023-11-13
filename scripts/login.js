@@ -1,3 +1,5 @@
+
+
 const users = [
     { username: 'admin', password: 'password' }
 ];
@@ -15,13 +17,12 @@ function login() {
         const user = users.find(u => u.username == username && u.password == password);
 
         if (user) {
-            window.location.href = 'admin.html';
+            window.location.href = 'menu.html';
         } else {
             showMessage('Credenciales incorrectas. Inténtelo de nuevo.');
         }
 
     } else {
         showMessage("La contraseña no cumple con la longitud, vuelva a ingresar una contraseña entre 8 y 15 caracteres")
-
     }
 }
