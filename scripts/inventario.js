@@ -6,8 +6,8 @@ let inventory = [
 let currentUser = null;
 
 
-function showMessage(message) {
-    document.getElementById('message').textContent = message;
+function showMessage(message2) {
+    document.getElementById('message2').textContent = message2;
 }
 
 function showInventory() {
