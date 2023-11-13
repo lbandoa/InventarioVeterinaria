@@ -60,6 +60,9 @@ function readProduct(){
 
         document.getElementById('product-rudName').value= nameProduct;
         document.getElementById('product-rudQuantity').value = quantityProduct;
+
+        showMessage('Consulta de producto');
+
     }else{
         alert("El código del producto no se encuentra registrado");
     }  
@@ -67,7 +70,23 @@ function readProduct(){
 }
 
 function updateProduct(){
+    const coderudProduct = document.getElementById('product-rudCode').value;
+    const productrudName = document.getElementById('product-rudName').value;
+    const productrudQuantity = parseInt(document.getElementById('product-rudQuantity').value, 10);
 
+    let search = document.getElementById('product-rudCode').value;
+    
+    let resultSearch = findIndexElement(inventory, search);
+
+    if (productrudName && !isNaN(productrudQuantity) && productrudQuantity > 0 && coderudProduct.length == 4) {
+        inventory[resultSearch] = {code: coderudProduct, name: productrudName, quantity: productrudQuantity };
+        showInventory();
+        
+        showMessage('Producto actualizado con éxito.');
+        clearValuesRUD();
+    } else {
+        showMessage('Por favor, ingrese un nombre de producto válido y una cantidad válida.');
+    }
 }
 
 
@@ -84,6 +103,7 @@ function deleteProduct(){
 
             inventory.splice(resultSearch, 1);
             showInventory();
+            showMessage('Producto borrado con éxito.');
             clearValuesRUD();
         }
     }else{
