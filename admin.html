@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
+<<<<<<< HEAD
 
     <div class="menu">
         <div class="logo">
@@ -26,17 +27,52 @@
         <h2>Inventario</h2>
         <ul id="product-list"></ul>
     </div>
+=======
+    <header>
+        <h1>Inventario Ferretería MULTI</h1>
+    </header>
+>>>>>>> 79b8119fbd78075c5dd5482e78a627e2e8c6cd73
 
-    <div id="add-product-form">
-        <h2>Agregar Producto</h2>
-        <form id="product-form">
-            <input type="text" id="product-code" placeholder="Código del Producto" required>
-            <input type="text" id="product-name" placeholder="Nombre del Producto" required>
-            <input type="number" id="product-quantity" placeholder="Cantidad" required>
-            <button type="button" onclick="addProduct()">Agregar</button>
-        </form>
-    </div>
-    <div id="message"></div>
+    <section>
+        <div id="inventory-section" style="height: 200px; overflow-y: scroll;">
+            <h2>Inventario</h2>
+            <ul id="product-list"></ul>
+        </div>
+    </section>
+    <section>
+        <div id="message"></div>
+    </section>
+    <section>
+        <div id="add-product-form">
+            <h2>Agregar Producto</h2>
+            <form id="product-form">
+                <input type="text" id="product-code" placeholder="Código del Producto" required>
+                <input type="text" id="product-name" placeholder="Nombre del Producto" required>
+                <input type="number" id="product-quantity" placeholder="Cantidad" required>
+                <button type="button" onclick="addProduct_cant()">Agregar</button>
+            </form>
+        </div>
+        
+    </section>
+
+    <section>
+        <div id="rud-product-form">
+            <h2>Consultar, Actualizar o Eliminar Producto</h2>
+            <form id="product-rudForm">
+                <input type="text" id="product-rudCode" placeholder="Código del Producto" required>
+                <input type="text" id="product-rudName" placeholder="Nombre del Producto" required>
+                <input type="number" id="product-rudQuantity" placeholder="Cantidad" required>
+                <button type="button" onclick="readProduct()">Consultar</button>
+                <button type="button" onclick="updateProduct()">Actualizar</button>
+                <button type="button" onclick="deleteProduct()">Borrar</button>
+            </form>
+        </div>   
+    </section>
+
+    <footer>
+
+    </footer>
+    
     <script src="./scripts/inventario.js"></script>
 </body>
 </html>
