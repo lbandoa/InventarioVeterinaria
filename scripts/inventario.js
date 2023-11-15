@@ -1,6 +1,8 @@
 let inventory = [
-    { code: "2356", name: 'Martillo', quantity: 10 },
-    { code: "0034", name: 'Destornillador', quantity: 20 }
+    { code: "2356", name: 'Guantes de látex', quantity: 50 },
+    { code: "1111", name: 'Clorhexidina', quantity: 2 },
+    { code: "0034", name: 'Hoja de bisturí #20', quantity: 20 },
+    { code: "0035", name: 'Jeringas 2ml', quantity: 20 }
 ];
 
 let currentUser = null;
