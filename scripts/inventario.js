@@ -50,10 +50,10 @@ function generatePDF() {
     // encabezado del informe con el logo
     const logoPath = '../imagenes/logo-sin-fondo.png';
     const logoSize = 40; // Esteo ajusta el tamaño del logo
-
     pdf.addImage(logoPath, 'PNG', 20, 10, logoSize, logoSize);
     pdf.text('Veterinaria NepetaCat - Inventario', 70, 30);
     pdf.text('Fecha: ' + new Date().toLocaleDateString(), 20, 50);
+    
     // Configura la tabla
     const columns = ['Código', 'Nombre', 'Cantidad'];
     const data = inventory.map(product => [product.code, product.name, product.quantity]);
