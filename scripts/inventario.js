@@ -1,3 +1,4 @@
+
 let inventory = [
     { code: "2356", name: 'Guantes de látex', quantity: 50 },
     { code: "1111", name: 'Clorhexidina', quantity: 2 },
@@ -7,20 +8,63 @@ let inventory = [
 
 let currentUser = null;
 
-
 function showMessage(message2) {
-    document.getElementById('message2').textContent = message2;
+    const messageElement = document.getElementById('message2');
+    messageElement.textContent = message2;
+    // Ocultar el mensaje después de 3000 milisegundos (3 segundos)
+    setTimeout(function () {
+        messageElement.textContent = '';
+    }, 3000);
 }
 
 function showInventory() {
     const productList = document.getElementById('product-list');
-    productList.innerHTML = '';
+    productList.innerHTML= '';
 
     inventory.forEach(product => {
-        const li = document.createElement('li');
-        li.textContent = `Código: ${product.code}  Nombre: ${product.name}  Cantidad: ${product.quantity}`;
-        productList.appendChild(li);
+        const tr = document.createElement('tr');
+        
+        const tdCode = document.createElement('td');
+        tdCode.textContent = product.code;
+        tr.appendChild(tdCode);
+        
+        const tdName = document.createElement('td');
+        tdName.textContent = product.name;
+        tr.appendChild(tdName);
+
+        const tdQuantity = document.createElement('td');
+        tdQuantity.textContent = product.quantity;
+        tr.appendChild(tdQuantity);
+
+        productList.appendChild(tr);
     });
+}
+showInventory()
+
+function generatePDF() {
+
+    // Crea un objeto jsPDF
+    const jsPDF = window.jspdf.jsPDF;
+    const pdf = new jsPDF();
+
+    // encabezado del informe con el logo
+    const logoPath = '../imagenes/logo-sin-fondo.png';
+    const logoSize = 40; // Esteo ajusta el tamaño del logo
+
+    pdf.addImage(logoPath, 'PNG', 20, 10, logoSize, logoSize);
+    pdf.text('Veterinaria NepetaCat - Inventario', 70, 30);
+    pdf.text('Fecha: ' + new Date().toLocaleDateString(), 20, 50);
+    // Configura la tabla
+    const columns = ['Código', 'Nombre', 'Cantidad'];
+    const data = inventory.map(product => [product.code, product.name, product.quantity]);
+    // Genera la tabla en el PDF
+    pdf.autoTable({
+        head: [columns],
+        body: data,
+        startY: 70, // Se ajusta la posición de inicio de la tabla
+    });
+    // Guarda el PDF
+    pdf.save('Informe_Productos.pdf');
 }
 
 function showAddProductForm() {
@@ -29,6 +73,26 @@ function showAddProductForm() {
 function hideAddProductForm() {
     showMessage('');
 }
+
+
+// Muestra el modal
+function openModalAgregarProductos() {
+    document.getElementById('add-product-form').style.display = 'block';
+}
+
+// Cierra el modal
+function closeModalAgregarProductos() {
+    document.getElementById('add-product-form').style.display = 'none';
+}
+
+function openModalModificarProductos() {
+    document.getElementById('rud-product-form').style.display = 'block';
+}
+
+function closeModalModificarProductos() {
+    document.getElementById('rud-product-form').style.display = 'none';
+}
+
 
 function addProduct() {
     const codeProduct = document.getElementById('product-code').value;
@@ -45,8 +109,6 @@ function addProduct() {
         showMessage('Por favor, ingrese un nombre de producto válido y una cantidad válida.');
     }
 }
-
-showInventory()
 
 function readProduct(){
 

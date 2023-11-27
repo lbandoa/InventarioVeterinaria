@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./imagenes/Logo-sin-fondo.png" type="image/x-icon">
+    <!-- Incluye jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <!-- Incluye autoTable -->
+    <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.7.0"></script>
     <title>Veterinaria NepetaCat</title>
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
@@ -14,44 +18,80 @@
             <img src="./imagenes/Logo-sin-fondo.png" alt="Logo de la empresa">
         </div>
         <ul>
-            <li><a href="#">Productos</a></li>
             <li><a href="admin.html">Stock</a></li>
             <li><a href="servicios.html">Servicios</a></li>
-            <li><a href="#">Contacto</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
         </ul>
     </div>
 
     <div class="tituloMenu">
         <h1>Veterinaria NepetaCat - Inventario</h1>
     </div>
-    <div id="inventory-section" style="height: 200px; overflow-y: scroll;">
-        <h2>Inventario</h2>
-        <ul id="product-list"></ul>
+
+    <!--BOTONES PARA LLAMAR LOS MODALES-->
+    <div class="button-container">
+        <button class="aproductos" type="button" onclick="openModalAgregarProductos()">Agregar Productos</button>
+        <button class="mproductos" type="button" onclick="openModalModificarProductos()">Modificar Productos</button>
+        <button class="reportes" type="button" id="generatePDFButton" onclick="generatePDF()">Generar Informe</button>
     </div>
 
-    <div id="add-product-form">
-        <h2>Agregar Producto</h2>
-        <form id="product-form">
-            <input type="text" id="product-code" placeholder="Código del Producto" required>
-            <input type="text" id="product-name" placeholder="Nombre del Producto" required>
-            <input type="number" id="product-quantity" placeholder="Cantidad" required>
-            <button type="button" onclick="addProduct_cant()">Agregar</button>
-        </form>
+    <!--MODALES-->
+    <div id="rud-product-form" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModalModificarProductos()">&times;</span>
+            <h3 class="title">Consultar, Actualizar o Eliminar Producto</h3>
+            <form id="product-rudForm">
+                <input type="text" id="product-rudCode" placeholder="Código del Producto" required>
+                <input type="text" id="product-rudName" placeholder="Nombre del Producto" required>
+                <input type="number" id="product-rudQuantity" placeholder="Cantidad" required>
+                <button type="button" onclick="readProduct()">Consultar</button>
+                <button type="button" onclick="updateProduct()">Actualizar</button>
+                <button type="button" onclick="deleteProduct()">Borrar</button>
+            </form>
+        </div>
     </div>
 
-    <div id="rud-product-form">
-        <h2>Consultar, Actualizar o Eliminar Producto</h2>
-        <form id="product-rudForm">
-            <input type="text" id="product-rudCode" placeholder="Código del Producto" required>
-            <input type="text" id="product-rudName" placeholder="Nombre del Producto" required>
-            <input type="number" id="product-rudQuantity" placeholder="Cantidad" required>
-            <button type="button" onclick="readProduct()">Consultar</button>
-            <button type="button" onclick="updateProduct()">Actualizar</button>
-            <button type="button" onclick="deleteProduct()">Borrar</button>
-        </form>
-    </div>   
+    <div id="add-product-form" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModalAgregarProductos()">&times;</span>
+            <h3 class="title">Agregar Producto</h3>
+            <form id="product-form">
+                <input type="text" id="product-code" placeholder="Código del Producto" required>
+                <input type="text" id="product-name" placeholder="Nombre del Producto" required>
+                <input type="number" id="product-quantity" placeholder="Cantidad" required>
+                <button type="button" onclick="addProduct_cant()">Agregar</button>
+            </form>
+        </div>
+        <div id="message2"></div>
+    </div>
 
-    <div id="message2"></div>
+    <!--CREACION DE TABLA-->
+    <table id="product-table">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+            </tr>
+        </thead>
+        <tbody id="product-list">
+            <!-- Las filas de la tabla se agregarán aquí dinámicamente -->|
+        </tbody>
+    </table>
+    
+    <div id="add-product-form" style="display: none;">
+        <label for="product-code">Código:</label>
+        <input type="text" id="product-code" required minlength="4" maxlength="4">
+        <br>
+        <label for="product-name">Nombre:</label>
+        <input type="text" id="product-name" required>
+        <br>
+        <label for="product-quantity">Cantidad:</label>
+        <input type="number" id="product-quantity" required min="1">
+        <br>
+        <button class="buttonAgregar" onclick="addProduct()">Agregar</button>
+        <button class="buttonAgregar" onclick="hideAddProductForm()">Cancelar</button>
+    </div>
 
     <script src="./scripts/inventario.js"></script>
 </body>

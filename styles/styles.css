@@ -24,11 +24,13 @@ section{
 }
 
 .agrupador{
+  box-sizing: border-box;
   position: relative;
   width: 400px;
   height: 450px;
   border: 1px solid rgba(82, 80, 80, 0.8);
   display: flex;
+  flex-direction: column;
   backdrop-filter: blur(10px);
   justify-content: center;
   align-items: center;
@@ -276,18 +278,6 @@ body {
   background-color: #0056b3;
 }
 
-/*.boton #productos {
-  width: 10px;
-  height: 10px;
-  background-image: url(./imagenes/google.png);
-  background-size: cover;
-  background-position: center;
-  display: inline-block;
-  position: absolute;
-  left: 10px;
-  top: 10px; 
-}*/
-
 /* *********Estilos de la pagina de admin ********* */
 
 .titulo{
@@ -298,11 +288,12 @@ body {
   margin-bottom: 20px;
 }
 
-#inventory-section, #add-product-form {
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    text-align: left;
+#inventory-section, #add-product-form, #rud-product-form {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 45%;
 }
 
 button {
@@ -330,10 +321,142 @@ li {
     padding: 5px;
 }
 
-#inventory-section, #rud-product-form, #add-product-form {
+#inventory-section, #rud-product-form, #add-product-form{
     margin: 20px;
     padding: 20px;
     border: 1px solid #ccc;
     text-align: left;
     margin-left: 300px;
+    backdrop-filter: blur(10px);
+}
+
+/* *********Estilos de la pagina de contacto ********* */
+
+
+
+/* *********Estilos de la tabla ********* */
+
+table {
+  width: 76%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-left: 300px;
+}
+
+thead {
+  background-color: #f2f2f2;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#add-product-form {
+  margin-top: 20px;
+  backdrop-filter: blur(10px);
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input, button {
+  margin-bottom: 10px;
+}
+
+input {
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+form {
+  flex-direction: column;
+  align-items: center;
+}
+
+.tittle {
+  color: #333;
+  text-align: center;
+}
+
+#product-form-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+/* *********Estilos del modal ********* */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-right: 100px;
+}
+
+.aproductos,
+.mproductos,
+.reportes {
+    width: 20%;
+    height: 45px;
+    border-radius: 40px;
+    margin-left: 300px;
+    background: rgb(127, 161, 255);
+    color: #000;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    font-size: 1rem;
+    transition: .4s;
 }
